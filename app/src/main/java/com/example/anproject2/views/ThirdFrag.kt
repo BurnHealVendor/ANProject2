@@ -74,9 +74,11 @@ class ThirdFrag : Fragment() {
                 /*var dateFormat: SimpleDateFormat = SimpleDateFormat("MM-dd-yyyy")
                 val dateStrToCV: Long = dateFormat.parse(newEvent?.date.toLong())
 
-                binding.tvTitle.setText(newEvent?.title)
-                binding.tvCat.setText(newEvent?.category)
-                binding.cvDate.setDate(newEvent?.date.toLong())*/
+                if (newEvent != null) {
+                    binding.tvTitle.text = newEvent.title
+                    binding.tvCat.setText(newEvent?.category)
+                    binding.cvDate.setDate(newEvent?.date.toLong())
+                }*/
             }
     }
 }

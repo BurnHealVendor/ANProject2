@@ -85,12 +85,12 @@ class FirstFrag : Fragment(), OnItemClickListener {
         fun newInstance(newEvent: Event? = null) =
             FirstFrag().apply {
                 if (newEvent != null) {
-                val title: String = newEvent.title
-                val cat: String = newEvent.category
-                val date: String = newEvent.date
+                    val title: String = newEvent.title
+                    val cat: String = newEvent.category
+                    val date: String = newEvent.date
 
-                eventAdapter.updateEventData(Event(title, cat, date))
-            }
+                    eventAdapter.updateEventData(Event(title, cat, date))
+                }
                 arguments = Bundle().apply {
                     putParcelable("myEvent", newEvent)
                 }
