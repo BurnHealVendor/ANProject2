@@ -76,8 +76,8 @@ class ThirdFrag : Fragment() {
 
                 if (newEvent != null) {
                     binding.tvTitle.text = newEvent.title
-                    binding.tvCat.setText(newEvent?.category)
-                    binding.cvDate.setDate(newEvent?.date.toLong())
+                    binding.tvCat.Text(newEvent?.category)
+                    binding.cvDate.Date(newEvent?.date.toLong())
                 }*/
             }
     }
