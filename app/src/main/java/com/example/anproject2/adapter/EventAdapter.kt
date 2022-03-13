@@ -7,15 +7,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.anproject2.R
 import com.example.anproject2.model.Event
+import com.example.anproject2.model.EventSingleton
 
 class EventAdapter(
-    private val eventList: MutableList<Event> = mutableListOf(),
+    private val eventList: MutableList<Event> = EventSingleton.myEventList,
     private var mListener : OnItemClickListener
     ) : RecyclerView.Adapter<EventViewHolder>() {
-
-    fun setOnItemClickListener(listener: OnItemClickListener) {
-        mListener = listener
-    }
 
     fun updateEventData(event: Event) {
         eventList.add(0, event)
@@ -23,12 +20,11 @@ class EventAdapter(
     }
 
     fun getEventData(position: Int): Event {
-        var title: String = eventList[position].title
-        var desc: String = eventList[position].title
-        var date: String = eventList[position].title
-        val clickedEvent = Event(title, desc, date)
+        val title: String = eventList[position].title
+        val desc: String = eventList[position].category
+        val date: String = eventList[position].date
 
-        return clickedEvent
+        return Event(title, desc, date)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
@@ -37,6 +33,7 @@ class EventAdapter(
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
+        eventList.sortBy { it.date }
         val event = eventList[position]
 
         holder.bind(event)
